@@ -237,8 +237,7 @@ exports.MacrosWnd = (function () {
                 RowAppearance.val.Cells.Addin.SetPicture(rowInfo.info.picture);
         };
         MacrosWnd.prototype.MacrosTreeПриАктивизацииСтроки = function (ctrl) {
-            if (ctrl.val.CurrentRow && ctrl.val.CurrentRow.rowInfo)
-                this.form.Controls.Description.Caption = ctrl.val.CurrentRow.rowInfo.info.descr.replace("&", "&&");
+            this.form.Controls.Description.Caption = ctrl.val.CurrentRow.rowInfo.info.descr.replace("&", "&&");
         };
         MacrosWnd.prototype.fillMacrosesTree = function (mode) {
             this.mode = mode;

@@ -213,7 +213,8 @@
 	0x224 ModuleTxtExtSettingsMap
   #elif ver < 8.3.6
 	0x24C ModuleTxtExtSettingsMap
-  #else
-	//ver <= 8.3.6.1977
+  #elif ver < 8.3.8
 	0x290 ModuleTxtExtSettingsMap
+  #else
+	0x294 ModuleTxtExtSettingsMap
   #endif

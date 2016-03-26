@@ -269,6 +269,9 @@ class TextDoc
             getTxtEdtService().getExtender(ext, itm, g);
             ISettingsConsumer&& st = ext.unk;
             IAssistantData&& data;
+			//dumpVtable(&&ext);
+			//dumpVtable(&&st);
+			//Print("cons=" + st.self + " offset=" + (st.self + ModuleTxtExtSettingsMap));
             for (uint node = mem::dword[st.self + ModuleTxtExtSettingsMap]; node != 0; node = mem::dword[node]) {
                 GuidRef&& pg = toGuid(node + 4);
                 if (pg.ref == IID_IAssistantData) {

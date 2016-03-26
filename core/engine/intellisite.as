@@ -297,12 +297,13 @@ class IntelliSite : SmartBoxSite {
             if (posInBuffer == 0)
                 hideAndSend(WM_KEYDOWN, wParam, lParam);
             else {
+				int c = (GetKeyState(VK_CONTROL) & 0x8000) > 0 ? posInBuffer : 1;
                 TextPosition tpStart = caretPos;
-                tpStart.col--;
+                tpStart.col -= c;
                 editor.setSelection(tpStart, caretPos, false, false);
                 editor.setSelectionText("");
-                buffer.remove(posInBuffer - 1);
-                moveCaret(-1);
+                buffer.remove(posInBuffer - c, c);
+                moveCaret(-c);
             }
             return true;
         case VK_LEFT:
@@ -337,7 +338,7 @@ class IntelliSite : SmartBoxSite {
     }
     void onChar(uint wParam, uint lParam)
     {
-        if (int(GetKeyState(VK_CONTROL)) < 0 || VK_BACK == wParam)
+        if ((GetKeyState(VK_CONTROL) & 0x8000) > 0 || VK_BACK == wParam)
             return;
         wchar_t symbol = wParam;
         if (' ' == symbol) {

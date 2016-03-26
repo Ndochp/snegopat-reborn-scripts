@@ -141,6 +141,9 @@
 	  #if ver >= 8.3
 		+2
 	  #endif
+	  #if ver>=8.3.8
+	    +1
+	  #endif
 		uint childClassesCount()
 		save const Guid& childClassIDAt(uint index)
 

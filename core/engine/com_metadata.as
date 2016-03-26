@@ -195,7 +195,7 @@ class IV8MDClass {
     IV8MDClass(IMDClass&& c)
     {
         &&mdClass = c;
-        IMDService&& pMDS = mdService;
+		IMDService&& pMDS = mdService;
         for (uint i = 0, m = mdClass.childClassesCount(); i < m; i++) {
             Guid clsId = mdClass.childClassIDAt(i);
             IMDClass&& pClass = pMDS.mdClass(clsId);

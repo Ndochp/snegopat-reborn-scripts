@@ -258,8 +258,7 @@ export var MacrosWnd = (function(){
                 RowAppearance.val.Cells.Addin.SetPicture(rowInfo.info.picture);
         }
         MacrosTreeПриАктивизацииСтроки(ctrl: { val: TableBox }) {
-            if (ctrl.val.CurrentRow && (<MacrosTreeRow>ctrl.val.CurrentRow).rowInfo)
-                this.form.Controls.Description.Caption = (<MacrosTreeRow>ctrl.val.CurrentRow).rowInfo.info.descr.replace("&", "&&");
+            this.form.Controls.Description.Caption = (<MacrosTreeRow>ctrl.val.CurrentRow).rowInfo.info.descr.replace("&", "&&");
         }
     
         fillMacrosesTree(mode: TypeofObjects) {
